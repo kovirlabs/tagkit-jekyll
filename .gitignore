@@ -1,0 +1,8 @@
+_site/
+build/
+example/_site/
+example/.jekyll-cache/
+example/Gemfile.lock
+vendor/
+node_modules/
+.DS_Store

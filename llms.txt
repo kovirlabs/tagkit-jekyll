@@ -1,0 +1,31 @@
+# TagKit for Jekyll
+
+> A Jekyll theme for GitHub Pages: plain layouts styled by TagBrush.css and enhanced by TagAction, used with one line of config. Write pages and posts in Markdown; don't add CSS, classes, or scripts.
+
+## Use it
+
+```yaml
+# _config.yml
+remote_theme: kovirlabs/tagkit-jekyll
+plugins:
+  - jekyll-remote-theme
+```
+
+## Layouts and front matter
+
+- `layout: home`: home page; lists posts after the content. `title`, `subtitle`, `posts_title`.
+- `layout: page`: a page. `title`; `toc: true` adds a table of contents beside it.
+- `layout: post`: a blog post. `title`, `author`, `toc: true`; shows the date and previous/next links.
+- `layout: default`: the page shell for custom pages.
+
+## Settings in _config.yml
+
+- `title`, `description`, `author`, `lang`.
+- `navigation`: a list of `{ title, url }` for the top bar. Without it, every page with a `title` is listed; `nav_order` orders them and `nav: false` hides one.
+- `tagkit.primary_color` (for example `"#0f766e"`), `tagkit.date_format` (default `"%B %-d, %Y"`), `tagkit.tagaction: false` (no script), `tagkit.credit: false` (no footer credit).
+- Add to `<head>` by creating `_includes/head-custom.html` in the site.
+
+## Links
+
+- [The Tag family](https://kovirlabs.github.io/tagstack/llms.txt): how TagBrush.css, TagAction, TagCheck, and TagKit fit together
+- [TagBrush.css guide](https://kovirlabs.github.io/tagbrush/llms.txt): the HTML that looks right, for custom layouts and includes

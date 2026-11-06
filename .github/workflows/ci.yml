@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+
+      # Builds example/ with the github-pages gem, as GitHub Pages would.
+      - run: sh scripts/build-example.sh
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+        timeout-minutes: 5
+
+      # TagCheck: no errors or warnings, contrast in light and dark mode, phone overflow.
+      - run: npm test

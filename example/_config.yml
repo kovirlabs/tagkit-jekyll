@@ -1,0 +1,16 @@
+# An example site for the theme. On GitHub Pages, a site uses the theme with:
+#   remote_theme: kovirlabs/tagkit-jekyll
+#   plugins: [jekyll-remote-theme]
+# The tests copy the theme's _layouts and _includes into this site instead.
+title: Field Notes
+description: Short essays on running a tiny software business.
+author: Dana Whitfield
+lang: en
+tagkit:
+  primary_color: "#0f766e"
+navigation:
+  - title: Posts
+    url: /
+  - title: About
+    url: /about.html
+exclude: [Gemfile, Gemfile.lock, vendor]

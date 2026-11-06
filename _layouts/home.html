@@ -1,0 +1,25 @@
+---
+layout: default
+---
+{%- assign date_format = site.tagkit.date_format | default: "%B %-d, %Y" %}
+{%- if page.title %}
+<hgroup>
+  <h1>{{ page.title | escape }}</h1>
+  {%- if page.subtitle %}
+  <p>{{ page.subtitle | escape }}</p>
+  {%- endif %}
+</hgroup>
+{%- endif %}
+{{ content }}
+{%- if site.posts.size > 0 %}
+<section>
+  <h2>{{ page.posts_title | default: "Posts" }}</h2>
+  {%- for post in site.posts %}
+  <article>
+    <h3><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h3>
+    <p>{{ post.excerpt | strip_html | normalize_whitespace | truncate: 160 }}</p>
+    <footer><time datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ post.date | date: date_format }}</time></footer>
+  </article>
+  {%- endfor %}
+</section>
+{%- endif %}

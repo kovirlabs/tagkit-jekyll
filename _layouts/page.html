@@ -1,0 +1,12 @@
+---
+layout: default
+---
+{%- if page.toc %}
+<aside><nav data-tag-toc aria-label="On this page"></nav></aside>
+{%- endif %}
+<article>
+  {%- if page.title %}
+  <h1>{{ page.title | escape }}</h1>
+  {%- endif %}
+  {{ content }}
+</article>

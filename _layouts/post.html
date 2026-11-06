@@ -1,0 +1,26 @@
+---
+layout: default
+---
+{%- assign date_format = site.tagkit.date_format | default: "%B %-d, %Y" %}
+{%- if page.toc %}
+<aside><nav data-tag-toc aria-label="On this page"></nav></aside>
+{%- endif %}
+<article>
+  <hgroup>
+    <h1>{{ page.title | escape }}</h1>
+    <p>{% if page.author %}By {{ page.author | escape }} · {% endif %}<time datetime="{{ page.date | date: "%Y-%m-%d" }}">{{ page.date | date: date_format }}</time></p>
+  </hgroup>
+  {{ content }}
+  {%- if page.previous or page.next %}
+  <nav aria-label="More posts">
+    <ul>
+      {%- if page.previous %}
+      <li><a rel="prev" href="{{ page.previous.url | relative_url }}">← {{ page.previous.title | escape }}</a></li>
+      {%- endif %}
+      {%- if page.next %}
+      <li><a rel="next" href="{{ page.next.url | relative_url }}">{{ page.next.title | escape }} →</a></li>
+      {%- endif %}
+    </ul>
+  </nav>
+  {%- endif %}
+</article>

@@ -1,0 +1,6 @@
+<footer>
+  {%- if site.description %}
+  <p>{{ site.description | escape }}</p>
+  {%- endif %}
+  <p>© {{ site.time | date: "%Y" }} {{ site.author.name | default: site.author | default: site.title | escape }}{% if site.tagkit.credit != false %} · Built with <a href="https://github.com/kovirlabs/tagkit-jekyll">TagKit</a>{% endif %}</p>
+</footer>
