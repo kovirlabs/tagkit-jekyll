@@ -9,9 +9,9 @@
     "test": "tagcheck example/_site --strict --browser"
   },
   "devDependencies": {
+    "@kovirlabs/tagcheck": "git+https://github.com/kovirlabs/tagcheck.git",
     "playwright": "1.64.1",
     "tagaction": "git+https://github.com/kovirlabs/tagaction.git",
-    "tagbrush": "1.1.0",
-    "tagcheck": "git+https://github.com/kovirlabs/tagcheck.git"
+    "tagbrush": "1.1.0"
   }
 }
