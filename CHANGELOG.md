@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Tested with TagBrush.css 1.2.0.
+
 ## 0.1.0 (unreleased)
 
 First version. Tested with TagBrush.css 1.1.0, TagAction 0.1.0, and the github-pages gem.
