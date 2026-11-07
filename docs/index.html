@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TagKit for Jekyll: a GitHub Pages theme in one line of config</title>
+<meta name="description" content="A Jekyll theme for GitHub Pages. Plain layouts styled by TagBrush.css and enhanced by TagAction. Add one line to _config.yml and write your pages in Markdown.">
+<link rel="icon" href="https://kovirlabs.github.io/tagstack/mark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tagbrush@1/tagbrush.min.css">
+<link rel="stylesheet" href="https://kovirlabs.github.io/tagstack/brand.css">
+<script src="https://cdn.jsdelivr.net/npm/tagaction@0/tagaction.min.js" defer></script>
+</head>
+<body>
+<header>
+  <nav aria-label="Tag family" data-brand="bar">
+    <a href="https://kovirlabs.github.io/tagstack/"><img src="https://kovirlabs.github.io/tagstack/mark.svg" alt="" width="24" height="24">Tag family</a>
+    <ul>
+      <li><a href="https://kovirlabs.github.io/tagbrush/">TagBrush.css</a></li>
+      <li><a href="https://kovirlabs.github.io/tagaction/">TagAction</a></li>
+      <li><a href="https://kovirlabs.github.io/tagcheck/">TagCheck</a></li>
+      <li><a href="https://kovirlabs.github.io/tagkit/" aria-current="page">TagKit</a></li>
+      <li><a href="https://github.com/kovirlabs/tagkit-jekyll">GitHub</a></li>
+    </ul>
+  </nav>
+  <hgroup>
+    <h1>TagKit for Jekyll</h1>
+    <p>A GitHub Pages theme you turn on with one line of config: no CSS, no classes, and pages in plain Markdown.</p>
+  </hgroup>
+  <div role="group">
+    <a class="button" href="#start">Quick start</a>
+    <a class="button secondary" href="https://github.com/kovirlabs/tagkit-jekyll">View on GitHub</a>
+  </div>
+</header>
+<main>
+  <aside><nav data-tag-toc aria-label="On this page"></nav></aside>
+  <article>
+    <h2 id="what">What you get</h2>
+    <p>The theme is plain layouts. <a href="https://kovirlabs.github.io/tagbrush/">TagBrush.css</a> styles the page and <a href="https://kovirlabs.github.io/tagaction/">TagAction</a> adds behavior. Both load from a CDN, so there is nothing to build or install.</p>
+    <ul>
+      <li>Light and dark mode, readable text width, styled tables, footnotes, task lists, and code highlighting (Rouge, colored by TagBrush.css).</li>
+      <li>A top bar with your site title and pages. The current page is marked for screen readers and styled.</li>
+      <li>A blog. The home page lists posts as cards. Posts show the author and date, with links to the previous and next post.</li>
+      <li>An optional table of contents beside a page or post (<code>toc: true</code>) that follows your reading.</li>
+      <li>Copy buttons on code, sortable tables, and "#" links on headings, from TagAction. Everything still works with JavaScript off.</li>
+    </ul>
+    <p>It is part of <a href="https://kovirlabs.github.io/tagkit/">TagKit</a>. See the gallery for templates and the other themes.</p>
+
+    <h2 id="start">Quick start</h2>
+    <p>Add these lines to your site's <code>_config.yml</code>. That is all GitHub Pages needs.</p>
+    <pre><code># _config.yml
+remote_theme: kovirlabs/tagkit-jekyll
+plugins:
+  - jekyll-remote-theme</code></pre>
+    <p>Then write your pages and posts in Markdown. Don't add CSS, classes, or scripts.</p>
+
+    <h2 id="layouts">Layouts</h2>
+    <table>
+      <thead><tr><th>Layout</th><th>For</th><th>Front matter</th></tr></thead>
+      <tbody>
+        <tr><td><code>home</code></td><td>The home page: your content, then a list of posts.</td><td><code>title</code>, <code>subtitle</code>, <code>posts_title</code></td></tr>
+        <tr><td><code>page</code></td><td>Pages such as About.</td><td><code>title</code>, <code>toc: true</code></td></tr>
+        <tr><td><code>post</code></td><td>Blog posts. Shows the date and previous and next links.</td><td><code>title</code>, <code>author</code>, <code>toc: true</code></td></tr>
+        <tr><td><code>default</code></td><td>The page shell. Use it for anything custom.</td><td></td></tr>
+      </tbody>
+    </table>
+    <p><code>toc: true</code> adds a table of contents beside the page or post. On the home page, <code>posts_title</code> sets the heading above the post list. It defaults to "Posts".</p>
+    <p>GitHub Pages picks <code>home</code>, <code>page</code>, and <code>post</code> for you, with its <code>jekyll-default-layout</code> plugin. Elsewhere, set them with <code>defaults</code>:</p>
+    <pre><code>defaults:
+  - scope: { type: posts }
+    values: { layout: post }
+  - scope: { type: pages }
+    values: { layout: page }</code></pre>
+
+    <h3 id="post">An example post</h3>
+    <p>A post in <code>_posts/2026-11-02-a-year-of-saas.md</code>, from the theme's example site:</p>
+    <pre><code>---
+title: What I learned running a tiny SaaS for a year
+author: Dana Whitfield
+toc: true
+---
+
+A year ago I launched a small tool that turns CSV exports into readable reports.
+
+## Charge from day one</code></pre>
+    <p>The file name gives the date. The <code>##</code> headings fill the table of contents.</p>
+
+    <h2 id="settings">Settings</h2>
+    <p>All settings go in <code>_config.yml</code> and all are optional.</p>
+    <pre><code>title: Field Notes
+description: Short essays on running a tiny software business.
+author: Dana Whitfield
+lang: en
+navigation:
+  - { title: Posts, url: / }
+  - { title: About, url: /about.html }
+tagkit:
+  primary_color: "#0f766e"
+  date_format: "%B %-d, %Y"
+  tagaction: false
+  credit: false</code></pre>
+    <dl>
+      <dt><code>title</code>, <code>description</code>, <code>author</code>, <code>lang</code></dt>
+      <dd>The site title and language. The description is the meta description and shows in the footer. The author shows in the footer.</dd>
+      <dt><code>navigation</code></dt>
+      <dd>A list of <code>{ title, url }</code> for the top bar. Without it, every page with a <code>title</code> is listed. Order them with <code>nav_order</code> and hide one with <code>nav: false</code> in its front matter.</dd>
+      <dt><code>tagkit.primary_color</code></dt>
+      <dd>The color of links, buttons, and accents.</dd>
+      <dt><code>tagkit.date_format</code></dt>
+      <dd>How post dates are shown. The default is <code>"%B %-d, %Y"</code>.</dd>
+      <dt><code>tagkit.tagaction: false</code></dt>
+      <dd>Leaves out the TagAction script.</dd>
+      <dt><code>tagkit.credit: false</code></dt>
+      <dd>Leaves out "Built with TagKit" in the footer.</dd>
+    </dl>
+    <p>To add to <code>&lt;head&gt;</code> (a favicon, analytics, <code>{% seo %}</code>, <code>{% feed_meta %}</code>), create <code>_includes/head-custom.html</code> in your site.</p>
+
+    <h2 id="agents">For AI agents</h2>
+    <p>Point your coding agent at the theme's <a href="https://raw.githubusercontent.com/kovirlabs/tagkit-jekyll/main/llms.txt">llms.txt</a>. It lists the layouts, front matter, and settings in a few lines. For custom layouts and includes, the <a href="https://kovirlabs.github.io/tagbrush/llms.txt">TagBrush.css guide</a> shows the HTML that looks right.</p>
+
+    <h2 id="tested">Tested</h2>
+    <p>CI builds the example site with the <code>github-pages</code> gem, the same Jekyll, kramdown, and plugins GitHub Pages runs. It checks every page with <a href="https://kovirlabs.github.io/tagcheck/">TagCheck</a>: no errors or warnings, WCAG AA contrast in light and dark mode, and no sideways scrolling on phones.</p>
+
+    <h2 id="status">Status</h2>
+    <p>Version 0.1.0 is not released yet. It is tested with TagBrush.css 1.2.0, TagAction 0.1.0, and the <code>github-pages</code> gem. Read the <a href="https://github.com/kovirlabs/tagkit-jekyll/blob/main/CHANGELOG.md">changelog</a>.</p>
+  </article>
+</main>
+<footer data-brand="footer">
+  <p>TagKit for Jekyll is open source under Apache-2.0. <a href="https://github.com/kovirlabs/tagkit-jekyll">Source on GitHub</a>.</p>
+  <p>Part of the <a href="https://kovirlabs.github.io/tagstack/">Tag family</a> from Kovir Labs.</p>
+</footer>
+</body>
+</html>

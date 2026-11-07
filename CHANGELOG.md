@@ -4,6 +4,8 @@
 
 First version. Tested with TagBrush.css 1.2.0, TagAction 0.1.0, and the github-pages gem.
 
+- A site at https://kovirlabs.github.io/tagkit-jekyll/ (in `docs/`, not part of the theme), in the Tag family brand.
+
 - Layouts: `default`, `home` (post list as cards), `page`, `post` (author, date, previous/next).
 - Includes: `head` (TagBrush.css, optional TagAction, brand color), `header` (navigation with the current page marked), `footer`, and an empty `head-custom` to override.
 - Optional table of contents beside pages and posts (`toc: true`).
