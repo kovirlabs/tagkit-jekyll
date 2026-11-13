@@ -3,7 +3,7 @@ layout: default
 ---
 {%- assign date_format = site.tagkit.date_format | default: "%B %-d, %Y" %}
 {%- if page.toc %}
-<aside><nav data-tag-toc aria-label="On this page"></nav></aside>
+<aside><nav data-tag-toc hidden aria-label="On this page"></nav></aside>
 {%- endif %}
 <article>
   <hgroup>
